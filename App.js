@@ -52,7 +52,7 @@ export default function App() {
       </View>
       {pokemon ? (
         <View style={{ marginTop: 100 }} key={Math.random()}>
-          <Text style={styles.titulo}>Você escolheu o {pokemon}</Text>
+          <Text style={styles.titulo}>As evoluções do {pokemon}</Text>
 
           <View style={styles.imageContainer}>
             {evolutions.map((evolution) => (
@@ -63,10 +63,12 @@ export default function App() {
                 }}
                 key={Math.random()}
               >
-                <Image
+                <Animatable.Image
                   key={Math.random()}
                   style={styles.image}
                   source={images[evolution].image}
+                  animation="bounceIn"
+                  duration={1000}
                 />
                 <Text key={Math.random()} style={styles.titulo}>
                   {images[evolution].name}
@@ -115,7 +117,5 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 110,
-    // marginLeft: 20,
-    // marginRight: 20,
   },
 });
